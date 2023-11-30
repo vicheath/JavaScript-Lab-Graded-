@@ -6,3 +6,20 @@
 // Use conditional logic to process data.
 // Use loops to handle repetitive tasks.
 // Transform data according to specifications.
+
+
+// ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26
+
+let cell = [
+    ["ID", "Name", "Occupation", "Age"], 
+    [42, "Bruce", "Knight", 41],
+    [57, "Bob", "Fry Cook", 19],
+    [63, "Blaine", "Quiz Master", 58],
+    [98, "Bill", "Doctors Assistant", 26],
+]
+// cell.length = 5
+
+for (let i = 1; i < cell.length; 
+    i++)
+{console.log(cell[i])}
+
