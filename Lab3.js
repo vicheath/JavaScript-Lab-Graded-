@@ -35,55 +35,65 @@ const csvData1 = `ID,Name,Occupation,Age
 98,Bill,Doctors Assistant,26`;
 
 // Part 2
-const rows1 = csvData1.split('\n');
-const headers1 = rows1[0].split(',');
-const dataArray1 = [];
+const rowsPart2 = csvData1.split('\n');
+const headersPart2 = rowsPart2[0].split(',');
+const dataArrayPart2 = [];
 
-for (let i = 1; i < rows1.length; i++) {
-  const values1 = rows1[i].split(',');
-  const rowObject1 = {};
-  headers1.forEach((header, index) => {
-    rowObject1[header] = values1[index];
+for (let i = 1; i < rowsPart2.length; i++) {
+  const valuesPart2 = rowsPart2[i].split(',');
+  const rowObjectPart2 = {};
+  headersPart2.forEach((header, index) => {
+    rowObjectPart2[header] = valuesPart2[index];
   });
-  dataArray1.push(Object.values(rowObject1));
+  dataArrayPart2.push(Object.values(rowObjectPart2));
 }
 
-dataArray1.unshift(headers1);
-console.log(dataArray1);
+dataArrayPart2.unshift(headersPart2);
+console.log("Part 2:");
+console.log(dataArrayPart2);
 
 // Part 3
-const rows2 = csvData1.split('\n');
-const headers2 = rows2[0].split(',').map(header => header.toLowerCase());
-const dataObjectsArray2 = [];
+const rowsPart3 = csvData1.split('\n');
+const headersPart3 = rowsPart3[0].split(',').map(header => header.toLowerCase());
+const dataObjectsArrayPart3 = [];
 
-for (let i = 1; i < rows2.length; i++) {
-  const values2 = rows2[i].split(',');
-  const rowObject2 = {};
-  headers2.forEach((header, index) => {
-    rowObject2[header] = values2[index];
+for (let i = 1; i < rowsPart3.length; i++) {
+  const valuesPart3 = rowsPart3[i].split(',');
+  const rowObjectPart3 = {};
+  headersPart3.forEach((header, index) => {
+    rowObjectPart3[header] = valuesPart3[index];
   });
-  dataObjectsArray2.push(rowObject2);
+  dataObjectsArrayPart3.push(rowObjectPart3);
 }
 
-console.log(dataObjectsArray2);
+console.log("\nPart 3:");
+console.log(dataObjectsArrayPart3);
 
 // Part 4
-dataObjectsArray2.pop();
-const newObjectAtIndex1 = { id: "48", name: "Barry", occupation: "Runner", age: "25" };
-dataObjectsArray2.splice(1, 0, newObjectAtIndex1);
-const newObjectAtEnd = { id: "7", name: "Bilbo", occupation: "None", age: "111" };
-dataObjectsArray2.push(newObjectAtEnd);
-console.log(dataObjectsArray2);
+const dataObjectsArrayPart4 = [...dataObjectsArrayPart3];
+dataObjectsArrayPart4.pop();
+const newObjectAtIndex1Part4 = { id: "48", name: "Barry", occupation: "Runner", age: "25" };
+dataObjectsArrayPart4.splice(1, 0, newObjectAtIndex1Part4);
+const newObjectAtEndPart4 = { id: "7", name: "Bilbo", occupation: "None", age: "111" };
+dataObjectsArrayPart4.push(newObjectAtEndPart4);
+console.log("\nPart 4:");
+console.log(dataObjectsArrayPart4);
 
-// Part 5
-const headers5 = Object.keys(dataObjectsArray2[0]);
-const csvLines5 = [headers5.join(',')];
+// Part 5 - Output as JSON
+const jsonDataPart5 = JSON.stringify(dataObjectsArrayPart4, null, 2);
+console.log("\nPart 5 - JSON Output:");
+console.log(jsonDataPart5);
 
-dataObjectsArray2.forEach((obj) => {
-  const values5 = headers5.map(header => obj[header]);
-  const csvLine5 = values5.join(',');
-  csvLines5.push(csvLine5);
+// Log the resulting CSV and JSON strings
+console.log("\nPart 5 - CSV Output:");
+const headersPart5 = Object.keys(dataObjectsArrayPart4[0]);
+const csvLinesPart5 = [headersPart5.join(',')];
+
+dataObjectsArrayPart4.forEach((obj) => {
+  const valuesPart5 = headersPart5.map(header => obj[header]);
+  const csvLinePart5 = valuesPart5.join(',');
+  csvLinesPart5.push(csvLinePart5);
 });
 
-const csvString5 = csvLines5.join('\n');
-console.log(csvString5);
+const csvStringPart5 = csvLinesPart5.join('\n');
+console.log(csvStringPart5);
